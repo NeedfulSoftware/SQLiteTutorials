@@ -1,5 +1,6 @@
-toolsets = vs2013;
+toolsets = vs2015 vs2013;
 
+vs2015.solutionfile = ../VC14/DbCreation1.sln;
 vs2013.solutionfile = ../VC12/DbCreation1.sln;
 
 setting SQLITE_ROOT
