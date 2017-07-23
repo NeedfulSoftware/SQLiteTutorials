@@ -4,6 +4,13 @@ This repository contains the examples for our [SQLite tutorials](http://www.need
 
 ## List of examples
 
+### C API examples
+
+- [DbCreation1](https://github.com/NeedfulSoftware/SQLiteTutorials/tree/master/C/DbCreation1): A minimal application that creates or opens an empty database.
+- [TableCreation1](https://github.com/NeedfulSoftware/SQLiteTutorials/tree/master/C/TableCreation1): A minimal application that creates a database table.
+- [InsertRow1](https://github.com/NeedfulSoftware/SQLiteTutorials/tree/master/C/InsertRow1): A minimal application that inserts a row in a table.
+- [Select1](https://github.com/NeedfulSoftware/SQLiteTutorials/tree/master/C/Select1): A minimal application that gets and prints out all rows of a table.
+
 ## License
 
 Copyright (c) 2015-2017 Xavier Leclercq
