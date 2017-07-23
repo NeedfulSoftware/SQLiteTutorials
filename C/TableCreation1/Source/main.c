@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
     int rc = sqlite3_open("MyFirstSQLiteDB.db", &db);
     if (rc != 0)
     {
-        printf("Error creating database handle (return code: %d)\n", rc);
+        printf("Error creating database handle (return code: %d, %s)\n", rc, sqlite3_errstr(rc));
     }
     else
     {
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         rc = sqlite3_exec(db, sql, 0, 0, &errorMessage);
         if (rc != 0)
         {
-            printf("Error creating table (return code: %d)\n", rc);
+            printf("Error creating table (return code: %d, %s)\n", rc, sqlite3_errstr(rc));
             if (errorMessage)
             {
                 printf("Error message: %s\n", errorMessage);
