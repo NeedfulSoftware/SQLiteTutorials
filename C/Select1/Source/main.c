@@ -23,6 +23,20 @@
 #include <sqlite3.h>
 #include <stdio.h>
 
+int callback(void* data, int ncolumns, char** columncomntents, char** columnames)
+{
+    for (int i = 0; i < ncolumns; ++i)
+    {
+        if (i != 0)
+        {
+            printf(", ");
+        }
+        printf("%s: %s", columnames[i], columncomntents[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
 int main(int argc, char* argv[])
 {
     sqlite3* db = NULL;
@@ -34,12 +48,12 @@ int main(int argc, char* argv[])
     }
     else
     {
-        char* sql = "INSERT INTO PERSONS (FIRSTNAME) VALUES ('Emma');";
+        char* sql = "SELECT * FROM PERSONS;";
         char* errorMessage = 0;
-        rc = sqlite3_exec(db, sql, 0, 0, &errorMessage);
+        rc = sqlite3_exec(db, sql, callback, 0, &errorMessage);
         if (rc != 0)
         {
-            printf("Error inserting row (return code: %d, %s)\n", rc, sqlite3_errstr(rc));
+            printf("Error in select (return code: %d, %s)\n", rc, sqlite3_errstr(rc));
             if (errorMessage)
             {
                 printf("Error message: %s\n", errorMessage);
