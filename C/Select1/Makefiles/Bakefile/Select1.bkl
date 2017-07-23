@@ -1,0 +1,26 @@
+toolsets = vs2015 vs2013;
+
+vs2015.solutionfile = ../VC14/Select1.sln;
+vs2013.solutionfile = ../VC12/Select1.sln;
+
+setting SQLITE_ROOT
+{
+    help = "Path to the SQLite installation";
+    default = '$(SQLITE)';
+}
+
+program Select1
+{
+    includedirs += $(SQLITE_ROOT);
+
+    headers
+    {
+        $(SQLITE_ROOT)/sqlite3.h
+    }
+
+    sources
+    {
+        $(SQLITE_ROOT)/sqlite3.c
+        ../../Source/main.c
+    }
+}
